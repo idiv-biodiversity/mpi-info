@@ -71,7 +71,7 @@ int main(int argc, char **argv) {
   printf("[INFO] [%s] [%d] MPI_Allreduce (sum of all ranks): %d\n", procname, mpi_r, sum);
 
   // ------------------------------------------------------------------------------------------------
-  // MPI_Allreduce
+  // MPI_Finalize
   // ------------------------------------------------------------------------------------------------
 
   mpi_e = MPI_Finalize();
