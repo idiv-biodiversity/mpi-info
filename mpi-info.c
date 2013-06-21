@@ -2,7 +2,6 @@
 #include <sys/resource.h>
 #include <mpi.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
 int main(int argc, char **argv) {
@@ -66,9 +65,9 @@ int main(int argc, char **argv) {
   // ------------------------------------------------------------------------------------------------
 
   if (getrlimit(RLIMIT_AS, &limit) == 0) {
-    printf("[INFO] [%s] [%d] virtual memory limit (RLIMIT_AS): %lu\n", procname, mpi_r, limit.rlim_max);
+    printf("[DEBUG] [%s] [%d] virtual memory limit (RLIMIT_AS): %lu\n", procname, mpi_r, limit.rlim_max);
   } else {
-    printf("[INFO] [%s] [%d] %d = getrlimit(%d): %s\n", procname, mpi_r, errno, RLIMIT_AS, strerror(errno));
+    fprintf(stderr, "[ERROR] [%s] [%d] %d = getrlimit(%d): %s\n", procname, mpi_r, errno, RLIMIT_AS, strerror(errno));
   }
 
   // ------------------------------------------------------------------------------------------------
