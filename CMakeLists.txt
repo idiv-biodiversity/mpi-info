@@ -15,6 +15,11 @@ set(SRCDIR "${CMAKE_CURRENT_SOURCE_DIR}")
 
 set(MPI_INFO_SRCS
   ${SRCDIR}/mpi-info.c
+  ${SRCDIR}/util.c
+)
+
+set(MPI_INFO_H
+  ${SRCDIR}/util.h
 )
 
 # -------------------------------------------------------------------------------
@@ -42,7 +47,7 @@ check_symbol_exists(strerror string.h HAVE_STRERROR)
 # end products
 # -------------------------------------------------------------------------------
 
-add_executable(mpi-info ${MPI_INFO_SRCS})
+add_executable(mpi-info ${MPI_INFO_SRCS} ${MPI_INFO_H})
 target_link_libraries(mpi-info ${MPI_C_LIBRARIES})
 
 # -------------------------------------------------------------------------------
