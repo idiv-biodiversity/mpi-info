@@ -11,7 +11,7 @@ project(mpi-info)
 # sources
 # -------------------------------------------------------------------------------
 
-set(SRCDIR "${CMAKE_CURRENT_SOURCE_DIR}")
+set(SRCDIR "${CMAKE_CURRENT_SOURCE_DIR}/src/main/c")
 
 set(MPI_INFO_SRCS
   ${SRCDIR}/mpi-info.c
