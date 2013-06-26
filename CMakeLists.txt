@@ -15,11 +15,13 @@ set(SRCDIR "${CMAKE_CURRENT_SOURCE_DIR}/src/main/c")
 
 set(MPI_INFO_SRCS
   ${SRCDIR}/mpi-info.c
-  ${SRCDIR}/util.c
+  ${SRCDIR}/communication.c
+  ${SRCDIR}/resources.c
 )
 
 set(MPI_INFO_H
-  ${SRCDIR}/util.h
+  ${SRCDIR}/communication.h
+  ${SRCDIR}/resources.h
 )
 
 # -------------------------------------------------------------------------------
@@ -34,9 +36,11 @@ check_include_file(errno.h HAVE_ERRNO_H)
 check_include_file(sys/resource.h HAVE_SYS_RESOURCE_H)
 check_include_file(stdio.h HAVE_STDIO_H)
 check_include_file(string.h HAVE_STRING_H)
+check_include_file(unistd.h HAVE_UNISTD_H)
 
 include(CheckSymbolExists)
 check_symbol_exists(fprintf stdio.h HAVE_FPRINTF)
+check_symbol_exists(getpid unistd.h HAVE_GETPID)
 check_symbol_exists(getrlimit sys/resource.h HAVE_GETRLIMIT)
 check_symbol_exists(printf stdio.h HAVE_PRINTF)
 check_symbol_exists(RLIMIT_AS sys/resource.h HAVE_RLIMIT_AS)
